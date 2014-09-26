@@ -9,7 +9,7 @@ function NetSpeed() {
 
   if [ -z "$1" ]; then
     echo
-    echo usage: $0 <network-interface>
+    echo "usage: $0 <network-interface>"
     echo
     echo e.g. $0 eth0
     echo
@@ -42,7 +42,7 @@ function NetPacket() {
 
   if [ -z "$1" ]; then
     echo
-    echo usage: $0 <network-interface>
+    echo "usage: $0 <network-interface>"
     echo
     echo e.g. $0 eth0
     echo
