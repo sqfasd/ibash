@@ -1,9 +1,15 @@
 _INTERVAL="1"  # update interval in seconds
 
 function NetSpeed() {
+  about 'net speed stat'
+  param '1: network interface'
+  example 'NetSpeed eth0'
+  example 'NetSpeed lo'
+  group 'net'
+
   if [ -z "$1" ]; then
     echo
-    echo usage: $0 [network-interface]
+    echo usage: $0 <network-interface>
     echo
     echo e.g. $0 eth0
     echo
@@ -28,9 +34,15 @@ function NetSpeed() {
 }
 
 function NetPacket() {
+  about 'net packets stat'
+  param '1: network interface'
+  example 'NetPacket eth0'
+  example 'NetPacket lo'
+  group 'net'
+
   if [ -z "$1" ]; then
     echo
-    echo usage: $0 [network-interface]
+    echo usage: $0 <network-interface>
     echo
     echo e.g. $0 eth0
     echo
@@ -54,5 +66,8 @@ function NetPacket() {
 }
 
 function NetStat() {
+  about 'net connections stat'
+  group 'net'
+  
   netstat -n | awk '/^tcp/ {++state[$NF]} END {for(key in state) print key,"\t",state[key]}'
 }
