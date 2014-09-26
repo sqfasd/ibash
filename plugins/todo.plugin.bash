@@ -13,7 +13,8 @@ if [ -z "$TODO_SRC_DIR" ]; then
 fi
 
 # respect ENV var set in .bash_profile, default is 't'
-alias t='$TODO_SRC_DIR/todo.sh -d $TODO_SRC_DIR/todo.cfg'
+TODO=t
+alias $TODO='$TODO_SRC_DIR/todo.sh -d $TODO_SRC_DIR/todo.cfg'
 
 export PATH=$PATH:$TODO_SRC_DIR
 source $TODO_SRC_DIR/todo_completion   # bash completion for todo.sh
