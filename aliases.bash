@@ -1,6 +1,6 @@
-alias lt='ls -ltr'
+alias lt='ls -latr'
 alias b='cd ..'
 alias _="sudo"
 alias c='clear'
 alias q='exit'
-alias h='history'
+alias h='reference'
