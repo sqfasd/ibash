@@ -188,7 +188,7 @@ imkiso ()
 }
 
 # useful for administrators and configs
-function ibuf ()
+function ibak ()
 {
     about 'back up file with timestamp'
     param 'filename'
