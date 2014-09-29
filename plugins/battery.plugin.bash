@@ -1,7 +1,7 @@
 cite about-plugin
 about-plugin 'display info about your battery charge level'
 
-battery_percentage(){
+ibattery_percentage(){
   about 'displays battery charge as a percentage of full (100%)'
   group 'battery'
 
@@ -68,7 +68,7 @@ battery_percentage(){
   fi
 }
 
-battery_charge(){
+ibattery_charge(){
   about 'graphical display of your battery charge'
   group 'battery'
 

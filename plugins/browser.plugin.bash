@@ -3,7 +3,7 @@
 cite about-plugin
 about-plugin 'render commandline output in your browser'
 
-function browser() {
+function ibrowser() {
     about 'pipe html to a browser'
     example '$ echo "<h1>hi mom!</h1>" | browser'
     example '$ ron -5 man/rip.5.ron | browser'
@@ -24,7 +24,7 @@ function browser() {
 }
 
 
-function wmate() {
+function iwmate() {
     about 'pipe hot spicy interwebs into textmate and cleanup!'
     example '$ wmate google.com'
     group 'browser'
@@ -61,7 +61,7 @@ EOT`
     fi
 }
 
-function raw() {
+function iraw() {
     about 'write wget into a temp file and pump it into your browser'
     example '$ raw google.com'
     group 'browser'

@@ -20,7 +20,7 @@ if [ ! -d "$NVM_DIR" ]; then
 fi
 
 # Expand a version using the version cache
-nvm_version()
+invm_version()
 {
     PATTERN=$1
     # The default version is the current one
@@ -36,7 +36,7 @@ nvm_version()
     fi
 }
 
-nvm_ls()
+invm_ls()
 {
     PATTERN=$1
     VERSIONS=''
@@ -63,7 +63,7 @@ nvm_ls()
     return
 }
 
-print_versions()
+invm_print_versions()
 {
     OUTPUT=''
     for VERSION in $1; do
@@ -76,7 +76,7 @@ print_versions()
     echo -e "$OUTPUT" | column
 }
 
-nvm()
+invm()
 {
   about 'Node Version Manager'
   param '1: command, see nvm help'

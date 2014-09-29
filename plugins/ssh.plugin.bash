@@ -1,7 +1,7 @@
 cite about-plugin
 about-plugin 'ssh helper functions'
 
-function add_ssh() {
+function iadd_ssh() {
   about 'add entry to ssh config'
   param '1: host'
   param '2: hostname'
@@ -11,7 +11,7 @@ function add_ssh() {
   echo -en "\n\nHost $1\n  HostName $2\n  User $3\n  ServerAliveInterval 30\n  ServerAliveCountMax 120" >> ~/.ssh/config
 }
 
-function sshlist() {
+function isshlist() {
   about 'list hosts defined in ssh config'
   group 'ssh'
 

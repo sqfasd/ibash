@@ -1,6 +1,6 @@
 cite about-plugin
 about-plugin 'one command to extract them all...'
-extract () {
+iextract () {
   if [ $# -ne 1 ]
   then
     echo "Error: No file specified."

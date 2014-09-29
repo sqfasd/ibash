@@ -3,19 +3,18 @@ readonly PROGDIR=$(readlink -m $(dirname $0))
 readonly ARGS=$@
 readonly ARGC=$#
 
-function Die() {
-  echo "$1 [at line `caller`]" && exit 1
+function idie() {
+  echo "$1 [at line `caller`]" >2 && exit 1
 }
 
-function Check() {
+function icheck() {
   test $@
   if [ $? -ne 0 ]; then
-    echo "$@ check failed [at line `caller`]"
-    exit 1
+    echo "$@ check failed [at line `caller`]" >2 && exit 1
   fi
 }
 
-function AutoPass() {
+function iautopass() {
   Check $# -eq 2
   local cmd="$1"
   local password="$2"
@@ -28,7 +27,7 @@ function AutoPass() {
   "
 }
 
-function GetConfig() {
+function iget_config() {
   local config=$1
   local key=$2
   echo "`cat $config | grep $key | awk -F "=" '{print$2}' | tr -d ' '`"

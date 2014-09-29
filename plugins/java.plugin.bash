@@ -1,7 +1,7 @@
 cite about-plugin
 about-plugin 'Java and JAR helper functions'
 
-function jar_manifest {
+function ijar_manifest {
   about "extracts the specified JAR file's MANIFEST file and prints it to stdout"
   group 'java'
   param '1: JAR file to extract the MANIFEST from'

@@ -1,14 +1,14 @@
 cite about-plugin
 about-plugin 'miscellaneous tools'
 
-function ips ()
+function iips ()
 {
     about 'display all ip addresses for this host'
     group 'base'
     ifconfig | grep "inet " | awk '{ print $2 }'
 }
 
-function down4me ()
+function idown4me ()
 {
     about 'checks whether a website is down for you, or everybody'
     param '1: website url'
@@ -17,7 +17,7 @@ function down4me ()
     curl -s "http://www.downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g'
 }
 
-function myip ()
+function imyip ()
 {
     about 'displays your ip address, as seen by the Internet'
     group 'base'
@@ -26,7 +26,7 @@ function myip ()
 }
 
 
-function pickfrom ()
+function ipickfrom ()
 {
     about 'picks random line from file'
     param '1: filename'
@@ -39,7 +39,7 @@ function pickfrom ()
     head -n $n $file | tail -1
 }
 
-function pass ()
+function ipass ()
 {
     about 'generates random password from dictionary words'
     param 'optional integer length'
@@ -53,7 +53,7 @@ function pass ()
     echo "Without (use this as the pass): $(echo $pass | tr -d ' ')"
 }
 
-function pmdown ()
+function ipmdown ()
 {
     about 'preview markdown file in a browser'
     param '1: markdown file'
@@ -67,7 +67,7 @@ function pmdown ()
     fi
 }
 
-function mkcd ()
+function imkcd ()
 {
     about 'make a directory and cd into it'
     param 'path to create'
@@ -78,7 +78,7 @@ function mkcd ()
     cd "$*"
 }
 
-function lsgrep ()
+function ilsgrep ()
 {
     about 'search through directory contents with grep'
     group 'base'
@@ -86,7 +86,7 @@ function lsgrep ()
 }
 
 
-function pman ()
+function ipman ()
 {
     about 'view man documentation in Preview'
     param '1: man page to view'
@@ -96,7 +96,7 @@ function pman ()
 }
 
 
-function pcurl ()
+function ipcurl ()
 {
     about 'download file and Preview it'
     param '1: download URL'
@@ -105,7 +105,7 @@ function pcurl ()
     curl "${1}" | open -f -a $PREVIEW
 }
 
-function pri ()
+function ipri ()
 {
     about 'display information about Ruby classes, modules, or methods, in Preview'
     param '1: Ruby method, module, or class'
@@ -114,14 +114,14 @@ function pri ()
     ri -T "${1}" | open -f -a $PREVIEW
 }
 
-function quiet ()
+function iquiet ()
 {
     about 'what *does* this do?'
     group 'base'
 	$* &> /dev/null &
 }
 
-function banish-cookies ()
+function ibanish_cookies ()
 {
     about 'redirect .adobe and .macromedia files to /dev/null'
     group 'base'
@@ -130,7 +130,7 @@ function banish-cookies ()
 	ln -s /dev/null ~/.macromedia
 }
 
-function usage ()
+function iusage ()
 {
     about 'disk usage per directory, in Mac OS X and Linux'
     param '1: directory name'
@@ -151,22 +151,7 @@ function usage ()
     fi
 }
 
-if [ ! -e $BASH_IT/plugins/todo.plugin.bash ]; then
-# if user has installed todo plugin, skip this...
-    function t ()
-    {
-        about 'one thing todo'
-        param 'if not set, display todo item'
-        param '1: todo text'
-        if [[ "$*" == "" ]] ; then
-            cat ~/.t
-        else
-            echo "$*" > ~/.t
-        fi
-    }
-fi
-
-function command_exists ()
+function icommand_exists ()
 {
     about 'checks for existence of a command'
     param '1: command to check'
@@ -175,7 +160,7 @@ function command_exists ()
     type "$1" &> /dev/null ;
 }
 
-mkiso ()
+imkiso ()
 {
 
     about 'creates iso from current dir in the parent dir (unless defined)'
@@ -203,7 +188,7 @@ mkiso ()
 }
 
 # useful for administrators and configs
-function buf ()
+function ibuf ()
 {
     about 'back up file with timestamp'
     param 'filename'

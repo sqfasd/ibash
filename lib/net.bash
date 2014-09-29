@@ -1,6 +1,6 @@
 _INTERVAL="1"  # update interval in seconds
 
-function NetSpeed() {
+function inetspeed() {
   about 'net speed stat'
   param '1: network interface'
   example 'NetSpeed eth0'
@@ -33,7 +33,7 @@ function NetSpeed() {
   done
 }
 
-function NetPacket() {
+function inetpacket() {
   about 'net packets stat'
   param '1: network interface'
   example 'NetPacket eth0'
@@ -65,7 +65,7 @@ function NetPacket() {
   done
 }
 
-function NetStat() {
+function inetstat() {
   about 'net connections stat'
   group 'net'
   
