@@ -4,13 +4,13 @@ readonly ARGS=$@
 readonly ARGC=$#
 
 function idie() {
-  echo "$1 [at line `caller`]" >2 && exit 1
+  echo "$1 [at line `caller`]" >&2 && exit 1
 }
 
 function icheck() {
   test $@
   if [ $? -ne 0 ]; then
-    echo "$@ check failed [at line `caller`]" >2 && exit 1
+    echo "$@ check failed [at line `caller`]" >&2 && exit 1
   fi
 }
 
