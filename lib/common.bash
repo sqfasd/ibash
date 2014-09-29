@@ -15,7 +15,7 @@ function icheck() {
 }
 
 function iautopass() {
-  Check $# -eq 2
+  icheck $# -eq 2
   local cmd="$1"
   local password="$2"
   expect -c "
@@ -30,5 +30,5 @@ function iautopass() {
 function iget_config() {
   local config=$1
   local key=$2
-  echo "`cat $config | grep $key | awk -F "=" '{print$2}' | tr -d ' '`"
+  echo "`cat $config | awk -F"=" -v key=$key '$1==key {print$2}' | tr -d ' '`"
 }
