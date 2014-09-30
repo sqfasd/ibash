@@ -2,66 +2,55 @@ _INTERVAL="1"  # update interval in seconds
 
 function inetspeed() {
   about 'net speed stat'
-  param '1: network interface'
-  example 'NetSpeed eth0'
-  example 'NetSpeed lo'
+  param '1: network interface (optional, default is eth0)'
+  example 'inetspeed'
+  example 'inetspeed eth0'
+  example 'inetspeed lo'
   group 'net'
 
-  if [ -z "$1" ]; then
-    echo
-    echo "usage: $0 <network-interface>"
-    echo
-    echo e.g. $0 eth0
-    echo
-    return
+  local IF=eth0
+  if [ -n "$1" ]; then
+    IF=$1
   fi
-
-  local IF=$1
 
   while true
   do
-    local R1=`cat /sys/class/net/$1/statistics/rx_bytes`
-    local T1=`cat /sys/class/net/$1/statistics/tx_bytes`
+    local R1=`cat /sys/class/net/$IF/statistics/rx_bytes`
+    local T1=`cat /sys/class/net/$IF/statistics/tx_bytes`
     sleep $_INTERVAL
-    local R2=`cat /sys/class/net/$1/statistics/rx_bytes`
-    local T2=`cat /sys/class/net/$1/statistics/tx_bytes`
+    local R2=`cat /sys/class/net/$IF/statistics/rx_bytes`
+    local T2=`cat /sys/class/net/$IF/statistics/tx_bytes`
     local TBPS=`expr $T2 - $T1`
     local RBPS=`expr $R2 - $R1`
     local TKBPS=`expr $TBPS / 1024`
     local RKBPS=`expr $RBPS / 1024`
-    echo "TX $1: $TKBPS kb/s RX $1: $RKBPS kb/s"
+    echo "TX $IF: $TKBPS kb/s RX $IF: $RKBPS kb/s"
   done
 }
 
 function inetpacket() {
   about 'net packets stat'
-  param '1: network interface'
-  example 'NetPacket eth0'
-  example 'NetPacket lo'
+  param '1: network interface (optional, default is eth0)'
+  example 'inetpacket'
+  example 'inetpacket eth0'
+  example 'inetpacket lo'
   group 'net'
 
-  if [ -z "$1" ]; then
-    echo
-    echo "usage: $0 <network-interface>"
-    echo
-    echo e.g. $0 eth0
-    echo
-    echo shows packets-per-second
-    return
+  local IF=eth0
+  if [ -n "$1" ]; then
+    IF=$1
   fi
-
-  local IF=$1
 
   while true
   do
-    local R1=`cat /sys/class/net/$1/statistics/rx_packets`
-    local T1=`cat /sys/class/net/$1/statistics/tx_packets`
+    local R1=`cat /sys/class/net/$IF/statistics/rx_packets`
+    local T1=`cat /sys/class/net/$IF/statistics/tx_packets`
     sleep $_INTERVAL
-    local R2=`cat /sys/class/net/$1/statistics/rx_packets`
-    local T2=`cat /sys/class/net/$1/statistics/tx_packets`
+    local R2=`cat /sys/class/net/$IF/statistics/rx_packets`
+    local T2=`cat /sys/class/net/$IF/statistics/tx_packets`
     local TXPPS=`expr $T2 - $T1`
     local RXPPS=`expr $R2 - $R1`
-    echo "TX $1: $TXPPS pkts/s RX $1: $RXPPS pkts/s"
+    echo "TX $IF: $TXPPS pkts/s RX $IF: $RXPPS pkts/s"
   done
 }
 
