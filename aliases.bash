@@ -4,4 +4,4 @@ alias _="sudo"
 alias c='clear'
 alias q='exit'
 alias h='reference'
-alias nodeh='node --harmony'
+alias docker='sudo docker'
