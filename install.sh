@@ -9,3 +9,5 @@ ln -s $PROGDIR $BASH_IT
 echo "export BASH_IT=$BASH_IT" >> $HOME/.bashrc
 echo "source $BASH_IT/ibash.sh" >> $HOME/.bashrc
 echo "export PATH=$BASH_IT/bin:\$PATH" >> $HOME/.bashrc
+
+ln -sf $PROGDIR/screenrc $HOME/.screenrc
